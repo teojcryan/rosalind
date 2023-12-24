@@ -11,12 +11,14 @@ class Graph:
         if v not in self.edges:
             self.edges[v] = []
         self.edges[v].append(u)
+        return self
 
     def add_directed_edge(self, u, v):
         # For directed graphs
         if u not in self.edges:
             self.edges[u] = []
         self.edges[u].append(v)
+        return self
 
     def generate_from_edge_list_file(self, file_path, directed=False):
         with open(file_path, 'r') as file:
@@ -29,3 +31,4 @@ class Graph:
                     self.add_directed_edge(u, v)
                 else:
                     self.add_edge(u, v)
+        return self
